@@ -1,31 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      font-family: sans-serif;
-      background: #f0f4f8;
+      font-family: Arial, sans-serif;
+      background-color: #f2f4f8;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
-    .message {
+
+    .message-box {
       background: white;
-      padding: 2rem;
+      padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
       text-align: center;
+    }
+
+    h1 {
+      color: #28a745;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #333;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      background: #0077cc;
+      padding: 10px 20px;
+      border-radius: 6px;
+    }
+
+    a:hover {
+      background: #005fa3;
     }
   </style>
 </head>
 <body>
-  <div class="message">
+
+  <div class="message-box">
     <h1>🎉 Thank You!</h1>
-    <p>Your message has been sent successfully.</p>
-    <a href="index.html">Go back home</a>
+    <p>Your message was sent successfully. We’ll be in touch soon.</p>
+    <a href="index.html">Back to Home</a>
   </div>
+
 </body>
 </html>
