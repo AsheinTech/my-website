@@ -50,10 +50,30 @@
       font-size: 1rem;
       border-radius: 6px;
       cursor: pointer;
+      position: relative;
     }
 
     button:hover {
       background-color: #005fa3;
+    }
+
+    #spinner {
+      display: none;
+      margin-left: 10px;
+    }
+
+    .sending #btnText {
+      display: none;
+    }
+
+    .sending #spinner {
+      display: inline-block;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
@@ -71,15 +91,35 @@
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="6" required></textarea>
 
-      <button type="submit">Send Information</button>
+      <!-- Google reCAPTCHA -->
+      <div class="g-recaptcha" data-sitekey="6LcA8msrAAAAABW5o08fUBkvgU5hw79H197p5sJY"></div>
+
+      <button type="submit" id="submitBtn">
+        <span id="btnText">Send Information</span>
+        <span id="spinner">⏳</span>
+      </button>
     </form>
   </div>
 
+  <!-- reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <!-- Submit + Spinner logic -->
   <script>
     const form = document.getElementById('contact-form');
+    const button = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const spinner = document.getElementById('spinner');
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
+
+      if (grecaptcha.getResponse() === "") {
+        alert("Please complete the reCAPTCHA.");
+        return;
+      }
+
+      button.classList.add('sending');
 
       const formData = new FormData(form);
 
@@ -95,8 +135,9 @@
         window.location.href = "https://asheintech.github.io/my-website/thankyou.html";
       } else {
         alert("Something went wrong. Please try again.");
+        button.classList.remove('sending');
       }
     });
   </script>
 </body>
-  </html
+</html>
