@@ -460,10 +460,11 @@ Learn More
   </div>
 
   <button type="submit" id="submitBtn" class="bg-primary text-white px-6 py-3 rounded-md w-full flex justify-center items-center">
-    <span id="btnText">Send Message</span>
-    <span id="spinner" class="hidden ml-2 animate-spin">⏳</span>
+    <span id="btnText">Submit Message</span>
+    <span id="spinner" class="hidden ml-2 animate-spin">▫️◽◻️🔲</span>
   </button>
   </form>
+  
 <!-- Contact Information -->
 <div>
 <div class="bg-primary text-white p-8 rounded-lg shadow-md mb-8">
@@ -474,6 +475,7 @@ Learn More
 <i class="ri-map-pin-line text-white"></i>
 </div>
 <div>
+  
 <h4 class="font-medium mb-1">Our Location</h4>
 <p class="text-white/80">CBD, Harare, Zimbabwe</p>
 </div>
@@ -775,6 +777,46 @@ header.classList.remove('shadow-lg');
 }
 });
 });
+</script>
+  <!-- reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- Submission Logic -->
+<script>
+  const form = document.getElementById('contact-form');
+  const button = document.getElementById('submitBtn');
+  const btnText = document.getElementById('btnText');
+  const spinner = document.getElementById('spinner');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    if (grecaptcha.getResponse() === "") {
+      alert("Please complete the reCAPTCHA.");
+      return;
+    }
+
+    button.disabled = true;
+    btnText.textContent = "Sending...";
+    spinner.classList.remove("hidden");
+
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      window.location.href = "thankyou.html";
+    } else {
+      alert("Something went wrong. Please try again.");
+      button.disabled = false;
+      btnText.textContent = "Send Message";
+      spinner.classList.add("hidden");
+    }
+  });
 </script>
 </body>
 </html>
