@@ -1,12 +1,11 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from dotenv import load_dotenv
+import os
 import openai
 
-app = Flask(__name__)
-CORS(app)
-
-# 🔐 Replace this with your actual OpenAI API key
-openai.api_key = "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"
+load_dotenv()  # Load key from .env
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Define the bot's personality
 SYSTEM_PROMPT = "You are Ashein AI Assistant, a friendly and knowledgeable chatbot that helps users with tech support, product recommendations, and general questions about Ashein Technologies."
