@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="-5et5d03OKzn4WG-N3LdvEfxYB7kbGgigkB-dqQNGso" />
+<title>Ashein Technologies - IT Solutions Company</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#0B2447',secondary:'#4F709C'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Poppins', sans-serif;
+}
+.hero-section {
+background-image: url('https://readdy.ai/api/search-image?query=modern%20tech%20office%20environment%20with%20subtle%20tech%20pattern%20overlay%2C%20blue%20color%20scheme%2C%20professional%20atmosphere%2C%20clean%20design%2C%20high-quality%20corporate%20setting%2C%20suitable%20for%20IT%20company%20hero%20section%2C%20left%20side%20with%20empty%20space%20for%20text%2C%20right%20side%20with%20tech%20professionals%20working%2C%20natural%20transition&width=1920&height=800&seq=hero1&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.hero-content {
+background: linear-gradient(90deg, rgba(11, 36, 71, 0.9) 0%, rgba(11, 36, 71, 0.8) 50%, rgba(11, 36, 71, 0.5) 100%);
+}
+.service-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(11, 36, 71, 0.1);
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #4F709C;
+}
+.testimonial-card {
+transition: all 0.3s ease;
+}
+.testimonial-card:hover {
+transform: scale(1.02);
+}
+.custom-checkbox {
+position: relative;
+padding-left: 30px;
+cursor: pointer;
+user-select: none;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #4F709C;
+border-radius: 4px;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #4F709C;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.switch-slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 34px;
+}
+.switch-slider:before {
+position: absolute;
+content: "";
+height: 16px;
+width: 16px;
+left: 4px;
+bottom: 4px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .switch-slider {
+background-color: #4F709C;
+}
+input:checked + .switch-slider:before {
+transform: translateX(26px);
+}
+</style>
+</head>
+<body class="overflow-x-hidden">
+<!-- Header -->
+<header class="bg-primary text-white fixed w-full z-50 shadow-md">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<a href="#" class="text-2xl font-['Pacifico'] text-white">Ashein Technologies</a>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center space-x-6">
+<a href="#home" class="text-white hover:text-secondary transition-colors">Home</a>
+<a href="#about" class="text-white hover:text-secondary transition-colors">About</a>
+  <a href="about.html">About Me</a>
+<a href="#services" class="text-white hover:text-secondary transition-colors">Services</a>
+<a href="#testimonials" class="text-white hover:text-secondary transition-colors">Testimonials</a>
+<a href="#contact" class="bg-secondary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all">Get Started</a>
+  <a href="contact.html">Contact</a>
+</nav>
+<!-- Mobile Navigation Toggle -->
+<div class="md:hidden flex items-center">
+<button id="mobile-menu-button" class="text-white w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line ri-2x"></i>
+</button>
+</div>
+</div>
+<!-- Mobile Navigation Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-primary">
+<div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+<a href="#home" class="text-white hover:text-secondary transition-colors py-2">Home</a>
+<a href="#about" class="text-white hover:text-secondary transition-colors py-2">About</a>
+<a href="#services" class="text-white hover:text-secondary transition-colors py-2">Services</a>
+<a href="#testimonials" class="text-white hover:text-secondary transition-colors py-2">Testimonials</a>
+<a href="#contact" class="text-white hover:text-secondary transition-colors py-2">Contact</a>
+<a href="#contact" class="bg-secondary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all inline-block w-max">Get Started</a>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section id="home" class="hero-section min-h-screen flex items-center pt-16">
+<div class="hero-content w-full min-h-[600px] flex items-center">
+<div class="container mx-auto px-4 py-20">
+<div class="max-w-2xl">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">Innovative IT Solutions for Your Business Growth</h1>
+<p class="text-xl text-white/90 mb-8">Secure, Reliable & Future-Ready Technology Services</p>
+<div class="flex flex-wrap gap-4">
+<a href="#services" class="bg-secondary text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-all">Our Services</a>
+<a href="#contact" class="bg-transparent border-2 border-white text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-white/10 transition-all">Contact Us</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="py-20 bg-primary">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Services</h2>
+<p class="max-w-2xl mx-auto text-white/80">We provide comprehensive IT solutions tailored to meet your business needs and help you stay ahead in the digital landscape.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Cybersecurity -->
+<div class="service-card bg-white/10 backdrop-blur-sm p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl border border-white/20">
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+<i class="ri-shield-keyhole-line text-white ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-white mb-3 text-center">Cybersecurity</h3>
+<p class="text-white/80 text-center mb-4">Protect your business with advanced threat detection, prevention, and response solutions.</p>
+<a href="#" class="text-white font-medium flex items-center justify-center gap-1 hover:text-secondary">
+Learn More
+<i class="ri-arrow-right-line"></i>
+</a>
+</div>
+<!-- Networking Solutions -->
+<div class="service-card bg-white/10 backdrop-blur-sm p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl border border-white/20">
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+<i class="ri-router-line text-white ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-white mb-3 text-center">Networking Solutions</h3>
+<p class="text-white/80 text-center mb-4">Build reliable, scalable, and secure network infrastructure for your organization.</p>
+<a href="#" class="text-white font-medium flex items-center justify-center gap-1 hover:text-secondary">
+Learn More
+<i class="ri-arrow-right-line"></i>
+</a>
+</div>
+<!-- Software Development -->
+<div class="service-card bg-white/10 backdrop-blur-sm p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl border border-white/20">
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+<i class="ri-code-s-slash-line text-white ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-white mb-3 text-center">Software Development</h3>
+<p class="text-white/80 text-center mb-4">Custom software solutions designed to streamline operations and enhance productivity.</p>
+<a href="#" class="text-white font-medium flex items-center justify-center gap-1 hover:text-secondary">
+Learn More
+<i class="ri-arrow-right-line"></i>
+</a>
+</div>
+<!-- IT Support -->
+<div class="service-card bg-white/10 backdrop-blur-sm p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl border border-white/20">
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 mx-auto">
+<i class="ri-customer-service-2-line text-white ri-2x"></i>
+</div>
+<h3 class="text-xl font-semibold text-white mb-3 text-center">IT Support</h3>
+<p class="text-white/80 text-center mb-4">24/7 technical support and maintenance services to keep your systems running smoothly.</p>
+<a href="#" class="text-white font-medium flex items-center justify-center gap-1 hover:text-secondary">
+Learn More
+<i class="ri-arrow-right-line"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- About Us Section -->
+<section id="about" class="py-20 bg-primary text-white">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div>
+<img src="https://readdy.ai/api/search-image?query=professional%20IT%20team%20in%20modern%20office%20environment%2C%20diverse%20group%20of%20tech%20experts%20collaborating%2C%20high-quality%20corporate%20setting%2C%20professional%20atmosphere%2C%20clean%20design%2C%20blue%20color%20scheme%2C%20suitable%20for%20about%20us%20section%20of%20IT%20company%20website&width=600&height=500&seq=about1&orientation=landscape" alt="Ashein Technologies Team" class="rounded-lg shadow-xl w-full h-auto object-cover">
+</div>
+<div>
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-6">About Ashein Technologies</h2>
+<p class="text-white/80 mb-6">Founded in 2023, Ashein Technologies has been at the forefront of providing innovative IT solutions to businesses across Zimbabwe and beyond. Our mission is to empower organizations through technology, helping them achieve operational excellence and competitive advantage.</p>
+<p class="text-white/80 mb-8">With a team of highly skilled professionals and a customer-centric approach, we deliver tailored IT services that address the unique challenges and requirements of each client.</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+<div class="bg-white/10 p-4 rounded-lg text-center">
+<h3 class="text-3xl font-bold text-white mb-1">2+</h3>
+<p class="text-white/80 text-sm">Years Experience</p>
+</div>
+<div class="bg-white/10 p-4 rounded-lg text-center">
+<h3 class="text-3xl font-bold text-white mb-1">250+</h3>
+<p class="text-white/80 text-sm">Projects Completed</p>
+</div>
+<div class="bg-white/10 p-4 rounded-lg text-center">
+<h3 class="text-3xl font-bold text-white mb-1">180+</h3>
+<p class="text-white/80 text-sm">Happy Clients</p>
+</div>
+<div class="bg-white/10 p-4 rounded-lg text-center">
+<h3 class="text-3xl font-bold text-white mb-1">25+</h3>
+<p class="text-white/80 text-sm">Team Experts</p>
+</div>
+</div>
+<a href="about.html" class="bg-white text-primary px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-all inline-block">Explore Our Story</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<!-- Why Choose Us Section -->
+<section id="why-choose-us" class="py-20 bg-[#E8EDF5] text-primary">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Ashein Technologies</h2>
+      <p class="max-w-2xl mx-auto text-gray-600">We’re not just another IT provider — we’re your long-term partner for digital growth, protection, and innovation.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <div class="text-4xl text-secondary mb-4">
+          <i class="ri-shield-check-line"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Proven Security</h3>
+        <p class="text-gray-600 text-sm">Our cybersecurity solutions defend your business from modern threats — 24/7.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <div class="text-4xl text-secondary mb-4">
+          <i class="ri-flashlight-line"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Fast & Reliable</h3>
+        <p class="text-gray-600 text-sm">Our tech runs fast, scales fast, and fixes fast. No downtime. No delays.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <div class="text-4xl text-secondary mb-4">
+          <i class="ri-team-line"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Expert Team</h3>
+        <p class="text-gray-600 text-sm">A skilled, passionate team that brings creative solutions to every challenge.</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <div class="text-4xl text-secondary mb-4">
+          <i class="ri-customer-service-2-line"></i>
+        </div>
+        <h3 class="text-xl font-semibold mb-2">Always Here</h3>
+        <p class="text-gray-600 text-sm">We support you round-the-clock — before, during, and after deployment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">What Our Clients Say</h2>
+<p class="max-w-2xl mx-auto text-white/80">Hear from businesses that have transformed their operations with our IT solutions.</p>
+</div>
+<div class="testimonial-slider relative">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <!-- FAQ Section -->
+<section id="faq" class="py-20 bg-white text-primary">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+      <p class="max-w-2xl mx-auto text-gray-600">Have questions? We’ve got answers.</p>
+    </div>
+    <div class="max-w-3xl mx-auto space-y-6">
+      <!-- Question 1 -->
+      <details class="bg-[#E8EDF5] rounded-lg p-6 shadow-md group">
+        <summary class="cursor-pointer font-semibold text-lg text-primary">What services do you offer?</summary>
+        <p class="mt-4 text-gray-600">We provide cybersecurity, networking solutions, software development, and 24/7 IT support tailored to your business needs.</p>
+      </details>
+
+      <!-- Question 2 -->
+      <details class="bg-[#E8EDF5] rounded-lg p-6 shadow-md group">
+        <summary class="cursor-pointer font-semibold text-lg text-primary">Do you offer ongoing support after project delivery?</summary>
+        <p class="mt-4 text-gray-600">Absolutely! We offer continuous technical support and maintenance to ensure smooth operations long after deployment.</p>
+      </details>
+
+      <!-- Question 3 -->
+      <details class="bg-[#E8EDF5] rounded-lg p-6 shadow-md group">
+        <summary class="cursor-pointer font-semibold text-lg text-primary">Can your services scale with my business?</summary>
+        <p class="mt-4 text-gray-600">Yes. All our solutions are built to grow with your business, whether you're a startup or an enterprise.</p>
+      </details>
+    </div>
+  </div>
+</section>
+  
+<!-- Testimonial 1 -->
+<div class="testimonial-card bg-white/10 backdrop-blur-sm p-8 rounded-lg shadow-md border border-white/20">
+<div class="flex items-center text-yellow-400 mb-4">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+<p class="text-white/80 italic mb-6">"Ashein Technologies completely transformed our IT infrastructure. Their cybersecurity solutions have protected us from multiple threats, and their support team is always available when we need them."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20African%20business%20woman%2C%20corporate%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=test1&orientation=squarish" alt="Client" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-semibold text-white">Grace Mutasa</h4>
+<p class="text-white/80 text-sm">CTO, Harare Financial Services</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="testimonial-card bg-white/10 backdrop-blur-sm p-8 rounded-lg shadow-md border border-white/20">
+<div class="flex items-center text-yellow-400 mb-4">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+<p class="text-white/80 italic mb-6">"The custom software solution developed by Ashein Technologies has streamlined our operations and increased productivity by 40%. Their team was professional, responsive, and delivered exactly what we needed."</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20African%20business%20man%2C%20corporate%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=test2&orientation=squarish" alt="Client" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-semibold text-gray-900">Tendai Moyo</h4>
+<p class="text-gray-600 text-sm">Operations Director, Bulawayo Manufacturing</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+<div class="flex items-center text-yellow-400 mb-4">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+</div>
+<p class="text-gray-700 italic mb-6">"We've been working with Ashein Technologies for over 2 years, and they've consistently provided reliable networking solutions and IT support. Their team is knowledgeable, proactive, and always goes the extra mile."</p><div class="flex items-center">
+<div class="w-12 h-12 bg-gray-300 rounded-full overflow-hidden mr-4">
+<img src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20African%20business%20woman%2C%20corporate%20attire%2C%20neutral%20background%2C%20high%20quality%20portrait&width=100&height=100&seq=test3&orientation=squarish" alt="Client" class="w-full h-full object-cover">
+</div>
+<div>
+<h4 class="font-semibold text-gray-900">Nyasha Chikwanda</h4>
+<p class="text-gray-600 text-sm">CEO, Victoria Falls Tourism Group</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-8">
+<button id="prev-testimonial" class="w-10 h-10 bg-white/10 rounded-full shadow-md flex items-center justify-center text-white mx-2 hover:bg-white/20 transition-colors">
+<i class="ri-arrow-left-s-line"></i>
+</button>
+<button id="next-testimonial" class="w-10 h-10 bg-white/10 rounded-full shadow-md flex items-center justify-center text-white mx-2 hover:bg-white/20 transition-colors">
+<i class="ri-arrow-right-s-line"></i>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-[#E8EDF5]">
+<div class="container mx-auto px-4">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Get In Touch</h2>
+<p class="max-w-2xl mx-auto text-gray-600">Have questions or ready to transform your IT infrastructure? Contact us today.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<!-- Contact Form -->
+<div class="bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-md">
+<h3 class="text-2xl font-semibold text-primary mb-6">Send Us a Message</h3>
+<form id="contact-form">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label for="name" class="block text-gray-700 mb-2">Full Name</label>
+<input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-secondary" placeholder="Your name">
+</div>
+<div>
+<label for="email" class="block text-gray-700 mb-2">Email Address</label>
+<input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-secondary" placeholder="Your email">
+</div>
+</div>
+<div class="mb-6">
+<label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+<input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-secondary" placeholder="Your phone number">
+</div>
+<div class="mb-6">
+<label for="service" class="block text-gray-700 mb-2">Service Interested In</label>
+<div class="relative">
+<select id="service" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-secondary appearance-none pr-8">
+<option value="" selected disabled>Select a service</option>
+<option value="cybersecurity">Cybersecurity</option>
+<option value="networking">Networking Solutions</option>
+<option value="software">Software Development</option>
+<option value="support">IT Support</option>
+<option value="other">Other</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</div>
+</div>
+<div class="mb-6">
+<label for="message" class="block text-gray-700 mb-2">Message</label>
+<textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-secondary" placeholder="Tell us about your project or inquiry"></textarea>
+</div>
+<div class="mb-6">
+<label class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+<span class="ml-2">I agree to the privacy policy and terms of service</span>
+</label>
+</div>
+<button type="submit" class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-opacity-90 transition-all w-full">Send Message</button>
+</form>
+</div>
+<!-- Contact Information -->
+<div>
+<div class="bg-primary text-white p-8 rounded-lg shadow-md mb-8">
+<h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+<div class="space-y-6">
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full mr-4 flex-shrink-0">
+<i class="ri-map-pin-line text-white"></i>
+</div>
+<div>
+<h4 class="font-medium mb-1">Our Location</h4>
+<p class="text-white/80">123 Tech Avenue, Harare, Zimbabwe</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full mr-4 flex-shrink-0">
+<i class="ri-mail-line text-white"></i>
+</div>
+<div>
+<h4 class="font-medium mb-1">Email Us</h4>
+<p class="text-white/80">asheintechnologies@gmail.com</p>
+<p class="text-white/80">info@asheintechnologies.vercel.app</p>
+<p class="text-white/80">support@asheintechnologies.vercel.app</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full mr-4 flex-shrink-0">
+<i class="ri-phone-line text-white"></i>
+</div>
+<div>
+<h4 class="font-medium mb-1">Call Us</h4>
+<p class="text-white/80">+263 717 145 214</p>
+<p class="text-white/80">+263 787 914 273</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full mr-4 flex-shrink-0">
+<i class="ri-time-line text-white"></i>
+</div>
+<div>
+<h4 class="font-medium mb-1">Business Hours</h4>
+<p class="text-white/80">Monday - Friday: 8:00 AM - 5:30 PM</p>
+<p class="text-white/80">Saturday: 9:00 AM - 1:00 PM</p>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<h4 class="font-medium mb-3">Follow Us</h4>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+<i class="ri-facebook-fill text-white"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+<i class="ri-twitter-x-fill text-white"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+<i class="ri-linkedin-fill text-white"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+<i class="ri-instagram-fill text-white"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="bg-white/80 backdrop-blur-sm rounded-lg overflow-hidden h-64 shadow-md">
+<img src="https://public.readdy.ai/gen_page/map_placeholder_1280x720.png" alt="Location Map" class="w-full h-full object-cover">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary text-white pt-16 pb-6">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+  <a href="blog.html" class="hover:text-secondary">Blog</a>
+<!-- Company Info -->
+<div>
+<a href="#" class="text-2xl font-['Pacifico'] text-white mb-6 inline-block">Ashein Technologies</a>
+<p class="text-white/80 mb-6">Providing innovative IT solutions to help businesses thrive in the digital age.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+<i class="ri-facebook-fill text-white"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+<i class="ri-twitter-x-fill text-white"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+<i class="ri-linkedin-fill text-white"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition-colors">
+<i class="ri-instagram-fill text-white"></i>
+</a>
+</div>
+</div>
+<!-- Quick Links -->
+<div>
+<h3 class="text-xl font-semibold mb-6">Quick Links</h3>
+<ul class="space-y-3">
+<li><a href="#home" class="text-white/80 hover:text-white transition-colors">Home</a></li>
+<li><a href="#about" class="text-white/80 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#services" class="text-white/80 hover:text-white transition-colors">Services</a></li>
+<li><a href="#testimonials" class="text-white/80 hover:text-white transition-colors">Testimonials</a></li>
+<li><a href="#contact" class="text-white/80 hover:text-white transition-colors">Contact</a></li>
+</ul>
+</div>
+<!-- Services -->
+<div>
+<h3 class="text-xl font-semibold mb-6">Our Services</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-white/80 hover:text-white transition-colors">Cybersecurity</a></li>
+<li><a href="#" class="text-white/80 hover:text-white transition-colors">Networking Solutions</a></li>
+<li><a href="#" class="text-white/80 hover:text-white transition-colors">Software Development</a></li>
+<li><a href="#" class="text-white/80 hover:text-white transition-colors">IT Support</a></li>
+<li><a href="#" class="text-white/80 hover:text-white transition-colors">Cloud Services</a></li>
+</ul>
+</div>
+<!-- Newsletter -->
+<div>
+<h3 class="text-xl font-semibold mb-6">Newsletter</h3>
+<p class="text-white/80 mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+<form class="mb-4">
+<div class="flex">
+<input type="email" placeholder="Your email address" class="px-4 py-3 rounded-l-md w-full text-gray-800 border-none">
+<button type="submit" class="bg-secondary text-white px-4 py-3 rounded-r-md whitespace-nowrap hover:bg-opacity-90 transition-all">Subscribe</button>
+</div>
+</form>
+<div class="flex items-center space-x-4">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-visa-fill text-white ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-mastercard-fill text-white ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-paypal-fill text-white ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-white/20 pt-6">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-white/80 text-sm mb-4 md:mb-0">© 2025 Ashein Technologies. All rights reserved.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-white/80 hover:text-white transition-colors text-sm">Privacy Policy</a>
+<a href="#" class="text-white/80 hover:text-white transition-colors text-sm">Terms of Service</a>
+<a href="#" class="text-white/80 hover:text-white transition-colors text-sm">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Mobile Menu Script -->
+<script id="mobile-menu-script">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+// Change icon based on menu state
+const icon = mobileMenuButton.querySelector('i');
+if (mobileMenu.classList.contains('hidden')) {
+icon.classList.remove('ri-close-line');
+icon.classList.add('ri-menu-line');
+} else {
+icon.classList.remove('ri-menu-line');
+icon.classList.add('ri-close-line');
+}
+});
+// Close mobile menu when clicking on a link
+const mobileLinks = mobileMenu.querySelectorAll('a');
+mobileLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+const icon = mobileMenuButton.querySelector('i');
+icon.classList.remove('ri-close-line');
+icon.classList.add('ri-menu-line');
+});
+});
+});
+</script>
+<!-- Smooth Scroll Script -->
+<script id="smooth-scroll-script">
+document.addEventListener('DOMContentLoaded', function() {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80, // Adjust for header height
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+<!-- Testimonial Slider Script -->
+<script id="testimonial-slider-script">
+document.addEventListener('DOMContentLoaded', function() {
+const testimonials = document.querySelectorAll('.testimonial-card');
+const prevButton = document.getElementById('prev-testimonial');
+const nextButton = document.getElementById('next-testimonial');
+// For simplicity, we're just toggling visibility in this example
+// In a real implementation, you would have proper carousel functionality
+let currentIndex = 0;
+// Show all testimonials on desktop, hide extras on mobile
+function updateTestimonialVisibility() {
+if (window.innerWidth < 768) {
+// On mobile, show only one
+testimonials.forEach((testimonial, index) => {
+if (index === currentIndex) {
+testimonial.style.display = 'block';
+} else {
+testimonial.style.display = 'none';
+}
+});
+} else {
+// On desktop, show all
+testimonials.forEach(testimonial => {
+testimonial.style.display = 'block';
+});
+}
+}
+// Initial update
+updateTestimonialVisibility();
+// Update on window resize
+window.addEventListener('resize', updateTestimonialVisibility);
+// Previous button click
+prevButton.addEventListener('click', function() {
+if (window.innerWidth < 768) {
+currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+updateTestimonialVisibility();
+}
+});
+// Next button click
+nextButton.addEventListener('click', function() {
+if (window.innerWidth < 768) {
+currentIndex = (currentIndex + 1) % testimonials.length;
+updateTestimonialVisibility();
+}
+});
+});
+</script>
+<!-- Form Validation Script -->
+<script id="form-validation-script">
+document.addEventListener('DOMContentLoaded', function() {
+const contactForm = document.getElementById('contact-form');
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+// Basic validation
+const name = document.getElementById('name').value;
+const email = document.getElementById('email').value;
+const phone = document.getElementById('phone').value;
+const service = document.getElementById('service').value;
+const message = document.getElementById('message').value;
+let isValid = true;
+if (!name) {
+isValid = false;
+document.getElementById('name').classList.add('border-red-500');
+} else {
+document.getElementById('name').classList.remove('border-red-500');
+}
+if (!email || !email.includes('@')) {
+isValid = false;
+document.getElementById('email').classList.add('border-red-500');
+} else {
+document.getElementById('email').classList.remove('border-red-500');
+}
+if (!phone) {
+isValid = false;
+document.getElementById('phone').classList.add('border-red-500');
+} else {
+document.getElementById('phone').classList.remove('border-red-500');
+}
+if (!service) {
+isValid = false;
+document.getElementById('service').classList.add('border-red-500');
+} else {
+document.getElementById('service').classList.remove('border-red-500');
+}
+if (!message) {
+isValid = false;
+document.getElementById('message').classList.add('border-red-500');
+} else {
+document.getElementById('message').classList.remove('border-red-500');
+}
+if (isValid) {
+// In a real implementation, you would send the form data to a server
+alert('Thank you for your message! We will get back to you soon.');
+contactForm.reset();
+} else {
+alert('Please fill in all required fields correctly.');
+}
+});
+});
+</script>
+<!-- Sticky Header Script -->
+<script id="sticky-header-script">
+document.addEventListener('DOMContentLoaded', function() {
+const header = document.querySelector('header');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 50) {
+header.classList.add('shadow-lg');
+} else {
+header.classList.remove('shadow-lg');
+}
+});
+});
+</script>
+</body>
+</html>
