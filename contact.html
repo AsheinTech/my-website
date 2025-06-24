@@ -42,7 +42,10 @@
 
 <!-- Contact Form -->
 <form action="https://formspree.io/f/mblyzeeb" method="POST">
+  <!-- Redirect to thank-you page on Vercel -->
   <input type="hidden" name="_redirect" value="http://asheintechnologies.vercel.app/thankyou.html">
+
+  <!-- Honeypot spam protection -->
   <input type="text" name="_gotcha" style="display:none">
 
   <label>Name</label>
@@ -55,7 +58,7 @@
   <textarea name="message" required></textarea>
 
   <button type="submit">Send</button>
-    </form>
+  </form>
     <div>
 </main>
 
