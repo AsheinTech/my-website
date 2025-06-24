@@ -10,7 +10,7 @@
       margin: 0;
       padding: 0;
       height: 100vh;
-      background: #f0f8ff;
+      background: #0a192f; /* navy blue background */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -20,26 +20,52 @@
 
     .message-box {
       text-align: center;
-      padding: 30px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px 30px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      animation: slideUp 0.8s ease-in-out;
     }
 
     h1 {
-      font-size: 2.5rem;
-      color: #2e8b57;
-      margin-bottom: 10px;
+      font-size: 3rem;
+      color: #0a192f;
+      margin-bottom: 15px;
+      animation: fadeIn 1s ease-in-out;
     }
 
     p {
-      font-size: 1.2rem;
-      color: #555;
+      font-size: 1.25rem;
+      color: #333;
+      margin-bottom: 25px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .btn-home {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: #0a192f;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .btn-home:hover {
+      background-color: #112240;
+      transform: scale(1.05);
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
@@ -47,14 +73,15 @@
   <div class="message-box">
     <h1>🎉 Thank You!</h1>
     <p>Your message has been sent successfully.</p>
+    <a href="index.html" class="btn-home">Back to Home</a>
   </div>
 
   <script>
     confetti({
-      particleCount: 150,
-      spread: 70,
+      particleCount: 200,
+      spread: 80,
       origin: { y: 0.6 }
     });
   </script>
 </body>
-</html>
+</html
