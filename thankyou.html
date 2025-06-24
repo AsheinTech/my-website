@@ -2,59 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Thank You!</title>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f4f8;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #f0f8ff;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .message-box {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
       text-align: center;
+      padding: 30px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     h1 {
-      color: #28a745;
-      font-size: 2rem;
+      font-size: 2.5rem;
+      color: #2e8b57;
       margin-bottom: 10px;
     }
 
     p {
-      color: #333;
-      font-size: 1rem;
-      margin-bottom: 20px;
+      font-size: 1.2rem;
+      color: #555;
     }
 
-    a {
-      text-decoration: none;
-      color: white;
-      background: #0077cc;
-      padding: 10px 20px;
-      border-radius: 6px;
-    }
-
-    a:hover {
-      background: #005fa3;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
 <body>
-
   <div class="message-box">
     <h1>🎉 Thank You!</h1>
-    <p>Your message was sent successfully. We’ll be in touch soon.</p>
-    <a href="index.html">Back to Home</a>
+    <p>Your message has been sent successfully.</p>
   </div>
 
+  <script>
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+  </script>
 </body>
 </html>
