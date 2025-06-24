@@ -829,5 +829,37 @@ header.classList.remove('shadow-lg');
 
 <!-- Remix Icon CDN (if not already added) -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ashein AI Assistant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Chat Panel -->
+  <div id="chat-container" class="fixed bottom-0 right-0 md:right-5 md:bottom-5 w-full md:w-[420px] h-[80%] md:h-[600px] z-50 bg-white rounded-t-lg md:rounded-lg shadow-lg border border-gray-300 flex flex-col overflow-hidden hidden">
+    <div class="bg-blue-900 text-white p-4 font-bold text-lg flex justify-between items-center">
+      Ashein AI Assistant
+      <button onclick="toggleChat()" class="text-white text-xl">&times;</button>
+    </div>
+    <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-sm bg-gray-50"></div>
+    <div class="p-3 border-t flex gap-2">
+      <input type="text" id="chat-input" placeholder="Type your question..." class="flex-1 p-2 border rounded focus:outline-none">
+      <button id="send-btn" class="bg-blue-900 text-white px-4 py-1 rounded hover:bg-blue-700">Send</button>
+    </div>
+  </div>
+
+  <!-- Floating Chat Open Button -->
+  <button id="open-chat-btn" onclick="toggleChat()" class="fixed bottom-5 right-5 md:right-6 md:bottom-6 bg-blue-900 text-white p-4 rounded-full shadow-lg z-40 hover:bg-blue-700">
+    💬
+  </button>
+
+  <!-- Chat Script -->
+  <script src="chatbot.js"></script>
+</body>
+        </html>
 </body>
 </html>
