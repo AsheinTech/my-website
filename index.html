@@ -803,6 +803,16 @@ header.classList.remove('shadow-lg');
 
     const response = await fetch(form.action, {
       method: "POST",
+      <!-- WhatsApp Floating Button -->
+<a href="https://wa.me/message/V5VA3R5IGSJWJ1"
+   class="fixed bottom-5 right-5 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Chat with us on WhatsApp">
+  <i class="ri-whatsapp-line text-2xl"></i>
+</a>
+
+<!-- Remix Icon CDN (only once in your file if not already) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css" rel="stylesheet">
       body: formData,
       headers: { 'Accept': 'application/json' }
     });
