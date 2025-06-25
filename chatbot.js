@@ -20,10 +20,10 @@ function sendMessage() {
   input.value = "";
 
   fetch("https://a760-102-128-79-225.ngrok-free.app/chat", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message })
-  })
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ message })
+})
     .then(res => res.json())
     .then(data => appendMessage("Ashein", data.reply))
     .catch(err => appendMessage("Ashein", "⚠️ Sorry, something went wrong."));
