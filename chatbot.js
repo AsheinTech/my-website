@@ -19,7 +19,7 @@ function sendMessage() {
   appendMessage("You", message);
   input.value = "";
 
-  fetch("https://8914-102-128-79-225.ngrok.io/chat", {
+  fetch("https://a760-102-128-79-225.ngrok-free.app/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message })
