@@ -874,7 +874,16 @@ header.classList.remove('shadow-lg');
 </button>
 
   <!-- Chat Script -->
-  <script src="chatbot.js"></script>
+<script>
+  function toggleChat() {
+    const chat = document.getElementById("chat-container");
+    chat.classList.toggle("hidden");
+  }
+</script>
+
+<script src="chatbot.js"></script>
+</body>
+</html>
 </body>
         </html>
 </body>
