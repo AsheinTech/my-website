@@ -851,12 +851,24 @@ header.classList.remove('shadow-lg');
       <button id="send-btn" class="bg-blue-900 text-white px-4 py-1 rounded hover:bg-blue-700">Send</button>
     </div>
   </div>
-
-  <!-- Floating Chat Open Button -->
+  
+<!-- Floating Chat Open Button -->
 <button
   id="open-chat-btn"
   onclick="toggleChat()"
-  style="position: fixed; bottom: 80px; right: 20px; z-index: 9999;"
+  style="
+    position: fixed;
+    bottom: 120px; /* raised higher */
+    right: 20px;
+    z-index: 9999;
+    padding: 16px 20px;
+    font-size: 20px;
+    background-color: #1e40af; /* Tailwind's blue-900 */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  "
 >
   💬
 </button>
