@@ -35,11 +35,12 @@ app.post('/chat', async (req, res) => {
 
     const data = await response.json();
 
-    res.json({ reply: data.choices[0]?.message?.content || 'No response from model.' });
-  } catch (err) {
-    console.error('Chat error:', err);
-    res.status(500).json({ error: 'Something went wrong.' });
-  }
+    if (data.choices && data.choices.length > 0) {
+  res.json({ reply: data.choices[0].message.content });
+} else {
+  console.error('Invalid OpenRouter response:', data);
+  res.status(500).json({ reply: 'Sorry, I couldn’t get a response from the AI.' });
+    }
 });
 
 app.listen(port, () => {
