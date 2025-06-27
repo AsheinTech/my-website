@@ -861,6 +861,10 @@ header.classList.remove('shadow-lg');
       <button onclick="toggleChat()" class="text-white text-xl">&times;</button>
     </div>
     <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-sm bg-gray-50"></div>
+    <div id="chat-box" class="chat-messages"></div>
+<div id="typing-indicator" class="text-gray-500 text-sm mt-2" style="display: none;">
+  Ashein AI is typing...
+</div>
     <div class="p-3 border-t flex gap-2">
       <input type="text" id="chat-input" placeholder="Type your question..." class="flex-1 p-2 border rounded focus:outline-none">
       <button id="send-btn" class="bg-blue-900 text-white px-4 py-1 rounded hover:bg-blue-700">Send</button>
