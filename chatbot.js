@@ -3,7 +3,7 @@ let messageCount = 0;
 document.getElementById('send-btn').addEventListener('click', async () => {
   // ✅ Stop if limit reached
   if (messageCount >= 15) {
-    alert('⚠️ You’ve reached the 15 message limit. Please refresh or reset the chat to continue.');
+    alert('⚠️ You’ve reached the 15 message limit. Please contact the asheintechnologies@gmail.com for pricing.');
     return;
   }
 
