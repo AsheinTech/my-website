@@ -1,6 +1,12 @@
 let messageCount = 0;
 
 document.getElementById('send-btn').addEventListener('click', async () => {
+  // ✅ Stop if limit reached
+  if (messageCount >= 15) {
+    alert('⚠️ You’ve reached the 15 message limit. Please refresh or reset the chat to continue.');
+    return;
+  }
+
   const input = document.getElementById('chat-input');
   const message = input.value.trim();
   if (!message) return;
@@ -55,10 +61,6 @@ document.getElementById('send-btn').addEventListener('click', async () => {
   // Update message counter
   messageCount++;
   messageCounter.textContent = `Message ${messageCount} of 15`;
-
-  if (messageCount === 10) {
-    messageCounter.textContent += ' ⚠️ Approaching the message limit. Consider saving your chat.';
-  }
 
   // Scroll to bottom & hide typing
   chatBox.scrollTop = chatBox.scrollHeight;
