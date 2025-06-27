@@ -6,11 +6,11 @@ document.getElementById('send-btn').addEventListener('click', async () => {
   const chatBox = document.getElementById('chat-messages');
   const typingIndicator = document.getElementById('typing-indicator');
 
-  // Display user's message
+  // Show user's message
   chatBox.innerHTML += `<div class="text-right"><strong>You:</strong> ${message}</div>`;
   input.value = '...';
 
-  // Show typing indicator
+  // ✅ Show "Ashein AI is typing..."
   typingIndicator.style.display = 'block';
 
   try {
@@ -21,12 +21,13 @@ document.getElementById('send-btn').addEventListener('click', async () => {
     });
 
     const data = await res.json();
+
     chatBox.innerHTML += `<div><strong>Ashein AI:</strong> ${data.reply}</div>`;
   } catch (err) {
     chatBox.innerHTML += `<div><em>Failed to get a response. Try again later.</em></div>`;
   }
 
-  // Hide typing indicator and reset input
+  // ✅ Hide "Ashein AI is typing..." after response
   typingIndicator.style.display = 'none';
   input.value = '';
-})
+});
