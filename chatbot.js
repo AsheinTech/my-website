@@ -3,7 +3,7 @@ document.getElementById('send-btn').addEventListener('click', async () => {
   const message = input.value.trim();
   if (!message) return;
 
-  const chatBox = document.getElementById('chat-box');
+  const chatBox = document.getElementById('chat-messages');
   const typingIndicator = document.getElementById('typing-indicator');
 
   // Display user's message
