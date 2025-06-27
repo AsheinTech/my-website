@@ -901,5 +901,27 @@ header.classList.remove('shadow-lg');
 </html>
 </body>
         </html>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 flex justify-between items-center z-50 shadow-lg hidden">
+  <p class="text-sm">
+    We use cookies to ensure you get the best experience on our website. 
+    <a href="privacy.html" class="underline text-secondary">Learn more</a>
+  </p>
+  <button onclick="acceptCookies()" class="bg-secondary text-white px-4 py-2 rounded hover:bg-opacity-90 transition">Accept</button>
+</div>
+
+<script>
+  function acceptCookies() {
+    document.getElementById('cookie-banner').style.display = 'none';
+    localStorage.setItem('cookieAccepted', 'true');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!localStorage.getItem('cookieAccepted')) {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    }
+  });
+</script>
 </body>
 </html>
