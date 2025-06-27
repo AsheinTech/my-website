@@ -1,3 +1,5 @@
+let messageCount = 0;
+
 document.getElementById('send-btn').addEventListener('click', async () => {
   const input = document.getElementById('chat-input');
   const message = input.value.trim();
@@ -5,6 +7,7 @@ document.getElementById('send-btn').addEventListener('click', async () => {
 
   const chatBox = document.getElementById('chat-messages');
   const typingIndicator = document.getElementById('typing-indicator');
+  const messageCounter = document.getElementById('message-count');
 
   // Show user's message (bubble right)
   chatBox.innerHTML += `
@@ -16,10 +19,10 @@ document.getElementById('send-btn').addEventListener('click', async () => {
     </div>
   `;
   input.value = '';
+  chatBox.scrollTop = chatBox.scrollHeight;
 
   // Show typing indicator
   typingIndicator.style.display = 'block';
-  chatBox.scrollTop = chatBox.scrollHeight;
 
   try {
     const res = await fetch('https://ashein-chat-backened-1.onrender.com/chat', {
@@ -49,9 +52,15 @@ document.getElementById('send-btn').addEventListener('click', async () => {
     `;
   }
 
-  // Scroll to bottom
-  chatBox.scrollTop = chatBox.scrollHeight;
+  // Update message counter
+  messageCount++;
+  messageCounter.textContent = `Message ${messageCount} of 15`;
 
-  // Hide typing indicator
+  if (messageCount === 10) {
+    messageCounter.textContent += ' ⚠️ Approaching the message limit. Consider saving your chat.';
+  }
+
+  // Scroll to bottom & hide typing
+  chatBox.scrollTop = chatBox.scrollHeight;
   typingIndicator.style.display = 'none';
 });
