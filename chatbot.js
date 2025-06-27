@@ -17,7 +17,7 @@ document.getElementById('send-btn').addEventListener('click', async () => {
     const data = await res.json();
     chatBox.innerHTML += `<div><strong>Ashein AI:</strong> ${data.reply}</div>`;
   } catch (err) {
-    chatBox.innerHTML += `<div><em>Failed to get a response. Try again later..</em></div>`;
+    chatBox.innerHTML += `<div><em>Failed to get a response. Try again later.</em></div>`;
   }
 
   input.value = '';
