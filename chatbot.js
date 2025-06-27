@@ -26,6 +26,8 @@ document.getElementById('send-btn').addEventListener('click', async () => {
   } catch (err) {
     chatBox.innerHTML += `<div><em>Failed to get a response. Try again later.</em></div>`;
   }
+  chatBox.scrollTop = chatBox.scrollHeight;
+
 
   // ✅ Hide "Ashein AI is typing..." after response
   typingIndicator.style.display = 'none';
