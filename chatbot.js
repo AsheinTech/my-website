@@ -1,40 +1,24 @@
-// Toggle chat window open/close
-function toggleChat() {
-  const chat = document.getElementById("chat-container");
-  chat.classList.toggle("hidden");
-}
-
-// Send button & Enter key listener
-document.getElementById("send-btn").addEventListener("click", sendMessage);
-document.getElementById("chat-input").addEventListener("keypress", e => {
-  if (e.key === "Enter") sendMessage();
-});
-
-// Send message to backend
-function sendMessage() {
-  const input = document.getElementById("chat-input");
+document.getElementById('send-btn').addEventListener('click', async () => {
+  const input = document.getElementById('chat-input');
   const message = input.value.trim();
   if (!message) return;
 
-  appendMessage("You", message);
-  input.value = "";
+  const chatBox = document.getElementById('chat-messages');
+  chatBox.innerHTML += `<div class="text-right"><strong>You:</strong> ${message}</div>`;
+  input.value = '...';
 
-  fetch("https://6c70-102-128-79-225.ngrok-free.app/chat", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({ message })
+  try {
+    const res = await fetch('https://your-backend-url.com/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await res.json();
+    chatBox.innerHTML += `<div><strong>Ashein AI:</strong> ${data.reply}</div>`;
+  } catch (err) {
+    chatBox.innerHTML += `<div><em>Failed to get a response. Try again later.</em></div>`;
+  }
+
+  input.value = '';
 })
-    .then(res => res.json())
-    .then(data => appendMessage("Ashein", data.reply))
-    .catch(err => appendMessage("Ashein", "⚠️ Sorry, something went wrong."));
-}
-
-// Display messages
-function appendMessage(sender, text) {
-  const container = document.getElementById("chat-messages");
-  const bubble = document.createElement("div");
-  bubble.innerHTML = `<strong>${sender}:</strong> ${text}`;
-  container.appendChild(bubble);
-  container.scrollTop = container.scrollHeight;
