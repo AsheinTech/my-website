@@ -8,7 +8,7 @@ document.getElementById('send-btn').addEventListener('click', async () => {
   input.value = '...';
 
   try {
-    const res = await fetch('https://your-backend-url.com/chat', {
+    const res = await fetch('https://ashein-chat-backened-1.onrender.com/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message })
