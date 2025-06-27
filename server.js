@@ -1,38 +1,47 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const OpenAI = require("openai");
+const fetch = require('node-fetch'); // Make sure this is installed
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-// Allow frontend to connect
+// Enable CORS for your frontend
 app.use(cors({
   origin: 'https://asheintechnologies.vercel.app'
 }));
+
 app.use(bodyParser.json());
 
-// Correct SDK setup (v4+)
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY  // ✅ Securely loaded from Render
-});
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 
 app.post('/chat', async (req, res) => {
   try {
     const { message } = req.body;
 
-    const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      messages: [{ role: 'user', content: message }]
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+        'Content-Type': 'application/json',
+        'HTTP-Referer': 'https://asheintechnologies.vercel.app', // Optional but recommended
+        'X-Title': 'Ashein AI Chatbot' // Optional: for tracking usage in your OpenRouter dashboard
+      },
+      body: JSON.stringify({
+        model: 'openai/gpt-3.5-turbo', // You can also try other models like anthropic/claude-3-haiku
+        messages: [{ role: 'user', content: message }]
+      })
     });
 
-    console.log("🧠 GPT Response:", response); // ✅ Add this
+    const data = await response.json();
 
-    res.json({ reply: response.choices[0].message.content });
-  } catch (error) {
-    console.error("❌ ERROR:", error); // ✅ Add this
-    res.status(500).json({ error: 'Something went wrong' });
+    res.json({ reply: data.choices[0]?.message?.content || 'No response from model.' });
+  } catch (err) {
+    console.error('Chat error:', err);
+    res.status(500).json({ error: 'Something went wrong.' });
   }
 });
 
-app.listen(port, () => console.log(`🚀 Server running on port ${port}`))
+app.listen(port, () => {
+  console.log(`🚀 Ashein AI Chatbot running on port ${port}`);
+});
