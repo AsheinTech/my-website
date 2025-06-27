@@ -6,7 +6,9 @@ const { Configuration, OpenAIApi } = require('openai');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://asheintechnologies.vercel.app'
+}));
 app.use(bodyParser.json());
 
 const openai = new OpenAIApi(new Configuration({
