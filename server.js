@@ -21,15 +21,16 @@ app.post('/chat', async (req, res) => {
   try {
     const { message } = req.body;
 
-    // Correct API call for OpenAI v4 SDK
     const response = await openai.chat.completions.create({
       model: 'gpt-3.5-turbo',
       messages: [{ role: 'user', content: message }]
     });
 
+    console.log("🧠 GPT Response:", response); // ✅ Add this
+
     res.json({ reply: response.choices[0].message.content });
   } catch (error) {
-    console.error(error);
+    console.error("❌ ERROR:", error); // ✅ Add this
     res.status(500).json({ error: 'Something went wrong' });
   }
 });
