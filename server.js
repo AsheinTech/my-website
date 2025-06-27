@@ -24,7 +24,7 @@ app.post('/chat', async (req, res) => {
       messages: [{ role: 'user', content: message }]
     });
 
-    res.json({ reply: response.data.choices[0].message.content });
+    res.json({ reply: response.choices[0].message.content });
   } catch (error) {
     console.error(error.response ? error.response.data : error.message);
     res.status(500).json({ error: 'Something went wrong' });
