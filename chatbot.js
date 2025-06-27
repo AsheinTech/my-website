@@ -1,5 +1,5 @@
 document.getElementById('send-btn').addEventListener('click', async () => {
-  const input = document.getElementById('user-input');
+  const input = document.getElementById('chat-input');
   const message = input.value.trim();
   if (!message) return;
 
