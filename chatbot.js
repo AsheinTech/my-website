@@ -8,7 +8,7 @@ document.getElementById('send-btn').addEventListener('click', async () => {
 
   // Show user's message
   chatBox.innerHTML += `<div class="text-right"><strong>You:</strong> ${message}</div>`;
-  input.value = '...';
+  input.value = '';
 
   // ✅ Show "Ashein AI is typing..."
   typingIndicator.style.display = 'block';
