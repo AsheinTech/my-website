@@ -101,14 +101,8 @@
     }
   </style>
 
-  <!-- Supabase JS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script>
-    const supabase = supabase.createClient(
-      'https://YOUR_PROJECT_REF.supabase.co',
-      'YOUR_PUBLIC_ANON_KEY'
-    );
-  </script>
+  <!-- Supabase JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.42.3/dist/umd/supabase.min.js"></script>
 </head>
 <body>
 
@@ -126,6 +120,11 @@
   </div>
 
   <script>
+    const supabase = supabase.createClient(
+      'https://gwraaxzunyibwvbrefji.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd3cmFheHp1bnlpYnd2YnJlZmppIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTExMDM0MTksImV4cCI6MjA2NjY3OTQxOX0.JCFCIWlu96e24ln2TY9RnaPcyI_WE-6rM0DhLmKqr-4'
+    );
+
     async function handleLogin() {
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value;
@@ -143,10 +142,10 @@
       if (error) {
         alert("Login failed: " + error.message);
       } else {
-        alert("Welcome " + email + "! Login successful.");
+        alert("Welcome! Login successful.");
         window.location.href = "index.html";
       }
     }
   </script>
 </body>
-        </html>
+  </html>
