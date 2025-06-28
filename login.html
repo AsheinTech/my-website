@@ -100,16 +100,24 @@
       margin: 0 10px;
     }
   </style>
+
+  <!-- Supabase JS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const supabase = supabase.createClient(
+      'https://YOUR_PROJECT_REF.supabase.co',
+      'YOUR_PUBLIC_ANON_KEY'
+    );
+  </script>
 </head>
 <body>
 
   <div class="box">
     <div class="box-content">
       <h2>Login</h2>
-      <input type="email" placeholder="Email">
-      <input type="text" placeholder="Username">
-      <input type="password" placeholder="Password">
-      <button>Sign in</button>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button onclick="handleLogin()">Sign in</button>
       <div class="links">
         <a href="#">Forgot Password</a> |
         <a href="#">Sign up</a>
@@ -117,5 +125,28 @@
     </div>
   </div>
 
+  <script>
+    async function handleLogin() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      if (!email || !password) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
+      });
+
+      if (error) {
+        alert("Login failed: " + error.message);
+      } else {
+        alert("Welcome " + email + "! Login successful.");
+        window.location.href = "index.html";
+      }
+    }
+  </script>
 </body>
-</html>
+        </html>
